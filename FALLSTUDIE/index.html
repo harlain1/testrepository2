@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO²-Footprint</title>
+    <link rel="shortcut icon" href="images/Favicone.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header class="bg-body-tertiary">
+        <div class="logo">
+            <img src="images/Favicone.png" alt="" width="100" height="100">
+            <p class="nameLogo">-Footprint</p>
+        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                      <li class="nav-item"><a class="nav-link disabled">Disabled</a></li>
+                    </ul>
+                </div>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+       <div class="d-flex justify-content-between p-3 mt-3 column-gap-4" id="menu">
+            <nav class="bg-primary text-center p-1">
+                <label for="direction">Select the writing direction :</label>
+                <select id="direction" name="direction">
+                    <option value="ltr">left to right</option>
+                    <option value="rtl">right to left</option>
+                </select>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Group</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                </ul>
+            </nav>
+            <section>
+                <div>
+                    <h1>Welche Unternehmen und Länder wie viel CO² jährlich emittieren</h1>
+                    <p>In diese section soll eine Tabelle mit (fiktiven) CO²-Emissionsdaten enthalten, die nach Land undUnternehmen sortiert und gefiltert werden kann.
+                      <br>Die Daten werden dynamisch in der Tabelle mit Hilfe der DOM methode ausgefüllt.
+                    </p>
+                </div>
+                <div class="p-2 mb-2">
+                    <div>
+                        <label for="landinput">Land : </label>
+                        <input type="text" id="landinput" placeholder="Suchen nach Land" onkeyup="landFiltern()"><br><br>
+                        <label for="unternehmeninput">Unternehmen : </label>
+                        <input type="text" id="unternehmeninput" placeholder="Suchen nach Unternehmen" onkeyup="unternehmenFiltern()"><br><br>
+                        <button onclick="filtern()">Suchen</button>
+                    </div>
+                    <div class="mt-3">
+                        <button onclick="sortTable(0)">Land von A bis Z</button>
+                        <button onclick="sortTable(1)">Unternehmen von A bis Z</button>
+                    </div>
+                </div>
+                <table class="table table-bordered border-dark" id="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">rang</th>
+                          <th scope="col">Land</th>
+                          <th scope="col">Unternehmen</th>
+                          <th scope="col">CO²-Emissionen (in Tonnen)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <tr id="co2daten">
+                          <th scope="row" id="rang">1</th>
+                          <td id="land">Deutschland</td>
+                          <td id="unternehmen">Otto</td>
+                          <td id="co2">4000</td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <nav class="navbar bg-body-secondary p-5">
+            <div>
+            <p>legal notices</p>
+            <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Terms of Use</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Privacy Policy</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Cookie Policy</a></li>
+                  <li class="nav-item"><a class="nav-link ">imprint</a></li>
+              </ul>
+            </div>
+            <div>
+                <p>Links</p>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link">Disabled</a></li>
+                  </ul>
+            </div>
+            <div>
+                <p>Contact</p>
+                <ul class="navbar-nav">
+                    <li class="nav-link">Adress : Munsterstraße 112, Munsterland</li>
+                    <li class="nav-link">Phone : 01 23 45 67 89</li>
+                    <li class="nav-item"><a class="nav-link">Email : CO2Footprint@email.com</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="bg-info text-center">
+            <p>© Copyright 2023 CO²-Footprint. All rights reserved.</p>
+        </section>
+      </footer>
+    
+    <script src="JS/co2EmissionDaten.js"></script>
+    <script src="JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

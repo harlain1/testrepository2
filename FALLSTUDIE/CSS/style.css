@@ -1,0 +1,58 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.logo{
+    display: flex;
+    width: 250px;
+    border: 1px solid aquamarine;
+    background-color: aquamarine;
+}
+.nameLogo{
+    font-size: xx-large;
+    align-self: self-end;
+}
+
+nav .container-fluid{
+    gap: 100px;
+}
+
+#navbarNav ul{
+    gap: 30px;
+}
+
+/*responsiv für Smartphones*/
+@media screen and (max-width: 767px) {
+    header { 
+        flex-direction: column;
+        padding: 10px;
+    }
+    #navbarNav{
+        display: inline;
+    }
+    #navbarNav ul{
+        flex-direction: row;
+    }
+    nav .container-fluid{
+        flex-direction: column;
+        align-items: end !important;
+        gap: 10px;
+    } 
+}
+
+/*responsiv für Tablets */
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    #navbarNav{
+        display: inline;
+    }
+    #navbarNav ul{
+        flex-direction: row;
+    }
+    nav .container-fluid{
+        flex-direction: column;
+        align-items: end !important;
+        gap: 10px;
+    } 
+}
+    
